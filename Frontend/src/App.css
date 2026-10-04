@@ -1,0 +1,115 @@
+/* ══════════════════════════════════════════
+   SITE FOOTER — Heritage Elegance
+   Renders on all non-Home pages via App.jsx
+   Matches the Home page ywa-footer exactly
+══════════════════════════════════════════ */
+
+.site-footer {
+  background: #1A1A1A;
+  padding: 80px 48px 40px;
+}
+
+.sf-inner {
+  max-width: 1200px;
+  margin: 0 auto 60px;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 48px;
+}
+
+.sf-col {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Brand column */
+.sf-logo {
+  font-family: 'Great Vibes', cursive;
+  font-size: 32px;
+  color: #B8960C;
+  margin: 0 0 16px;
+  line-height: 1;
+}
+
+.sf-tagline {
+  font-family: 'Jost', sans-serif;
+  font-size: 13px;
+  color: rgba(245,240,232,0.65);
+  line-height: 1.75;
+  margin: 0 0 24px;
+  max-width: 280px;
+}
+
+.sf-socials {
+  display: flex;
+  gap: 16px;
+}
+
+.sf-social {
+  font-family: 'Jost', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  color: rgba(245,240,232,0.40);
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+.sf-social:hover { color: #B8960C; }
+
+/* Info columns */
+.sf-col-title {
+  font-family: 'Jost', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #F5F0E8;
+  margin: 0 0 24px;
+}
+
+.sf-text {
+  font-family: 'Jost', sans-serif;
+  font-size: 13px;
+  color: rgba(245,240,232,0.65);
+  line-height: 2;
+  margin: 0;
+}
+
+.sf-link {
+  font-family: 'Jost', sans-serif;
+  font-size: 13px;
+  color: rgba(245,240,232,0.65);
+  text-decoration: none;
+  line-height: 2;
+  transition: color 0.2s, padding-left 0.2s;
+  display: block;
+}
+.sf-link:hover {
+  color: #B8960C;
+  padding-left: 4px;
+}
+
+/* Bottom bar */
+.sf-bottom {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: 24px;
+  border-top: 1px solid rgba(245,240,232,0.08);
+  text-align: center;
+  font-family: 'Jost', sans-serif;
+  font-size: 12px;
+  color: rgba(245,240,232,0.30);
+  letter-spacing: 0.5px;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .sf-inner { grid-template-columns: 1fr 1fr; gap: 40px; }
+}
+
+@media (max-width: 640px) {
+  .site-footer { padding: 60px 20px 32px; }
+  .sf-inner { grid-template-columns: 1fr; gap: 32px; }
+  .sf-logo { font-size: 28px; }
+}

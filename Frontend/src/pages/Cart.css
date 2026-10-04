@@ -1,0 +1,201 @@
+/* ── Cart Page ── */
+.shop-page {
+  min-height: 80vh;
+  background: #FAF7F2;
+  padding: 40px 24px 80px;
+}
+.shop-container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.shop-header {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 32px;
+  font-weight: 500;
+  color: #1A1A1A;
+  margin: 0 0 4px;
+}
+.shop-header-sub {
+  font-family: 'Jost', sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  color: #8A8A8A;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 28px;
+}
+.shop-layout {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 24px;
+  align-items: start;
+}
+@media (max-width: 768px) {
+  .shop-layout { grid-template-columns: 1fr; }
+}
+.shop-card {
+  background: #fff;
+  border: 1px solid #E0D8CC;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.shop-card.flex-col { display: flex; flex-direction: column; }
+.shop-card-content { padding: 20px; }
+.shop-card-header {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+  font-weight: 500;
+  color: #1A1A1A;
+  margin: 0 0 16px;
+}
+.item-list { list-style: none; margin: 0; padding: 0; }
+.cart-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 20px;
+  border-bottom: 1px solid #F0EBE3;
+}
+.cart-item:last-child { border-bottom: none; }
+.item-image {
+  width: 72px;
+  height: 72px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid #E0D8CC;
+  flex-shrink: 0;
+}
+.item-details { flex: 1; min-width: 0; }
+.item-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 15px;
+  font-weight: 500;
+  color: #1A1A1A;
+  margin: 0 0 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.item-price {
+  font-family: 'Jost', sans-serif;
+  font-size: 13px;
+  color: #B8960C;
+  margin: 0 0 2px;
+}
+.item-stock {
+  font-family: 'Jost', sans-serif;
+  font-size: 11px;
+  color: #8A8A8A;
+  margin: 0;
+}
+.item-qty-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid #E0D8CC;
+  border-radius: 6px;
+  padding: 4px 8px;
+}
+.btn-icon {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #1A1A1A;
+  display: flex;
+  align-items: center;
+  padding: 2px;
+  transition: color 0.2s;
+}
+.btn-icon:hover { color: #B8960C; }
+.item-qty {
+  font-family: 'Jost', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #1A1A1A;
+  min-width: 20px;
+  text-align: center;
+}
+.item-total { text-align: right; }
+.item-total-price {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: #1A1A1A;
+  margin: 0 0 6px;
+}
+.btn-remove {
+  background: none;
+  border: none;
+  font-family: 'Jost', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: #8A8A8A;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+.btn-remove:hover { color: #EF4444; }
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  font-family: 'Jost', sans-serif;
+  font-size: 13px;
+  color: #4A4A4A;
+  margin-bottom: 10px;
+}
+.summary-row.total {
+  border-top: 1px solid #E0D8CC;
+  padding-top: 12px;
+  margin-top: 4px;
+  font-weight: 600;
+  font-size: 15px;
+  color: #1A1A1A;
+}
+.text-free { color: #10B981; font-weight: 600; }
+.text-total-price { color: #B8960C; font-weight: 700; }
+.btn-primary-large {
+  width: 100%;
+  background: #1A1A1A;
+  color: #fff;
+  border: none;
+  padding: 14px;
+  font-family: 'Jost', sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 6px;
+  margin-top: 16px;
+  transition: background 0.2s;
+}
+.btn-primary-large:hover { background: #B8960C; }
+.empty-message {
+  text-align: center;
+  padding: 80px 24px;
+}
+.empty-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px;
+  color: #1A1A1A;
+  margin: 0 0 8px;
+}
+.empty-text {
+  font-family: 'Jost', sans-serif;
+  font-size: 14px;
+  color: #8A8A8A;
+  margin: 0 0 24px;
+}
+.btn-primary-link {
+  display: inline-block;
+  background: #1A1A1A;
+  color: #fff;
+  padding: 12px 28px;
+  font-family: 'Jost', sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: background 0.2s;
+}
+.btn-primary-link:hover { background: #B8960C; }

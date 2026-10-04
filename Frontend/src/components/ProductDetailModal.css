@@ -1,0 +1,152 @@
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 1rem;
+}
+
+.modal-content {
+  background: white;
+  width: 100%;
+  max-width: 900px;
+  border-radius: var(--radius-lg);
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  animation: modalIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+@keyframes modalIn {
+  from { opacity: 0; transform: scale(0.95) translateY(10px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  width: 40px;
+  height: 40px;
+  background: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  transition: var(--transition);
+}
+
+.modal-close-btn:hover {
+  background: var(--primary-rose);
+  color: white;
+  transform: rotate(90deg);
+}
+
+.modal-image-side {
+  width: 50%;
+  background: #f9fafb;
+}
+
+.modal-image-side img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.modal-info-side {
+  width: 50%;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-category {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--primary-rose);
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.modal-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+}
+
+.modal-price {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--text-main);
+  margin-bottom: 2rem;
+}
+
+.modal-description {
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.modal-actions {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.qty-selector {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.qty-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid #e5e7eb;
+  background: white;
+  font-size: 1.25rem;
+}
+
+.modal-main-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.buy-now-btn {
+  background: var(--text-main);
+  color: white;
+  padding: 1rem;
+  border-radius: var(--radius-md);
+  font-weight: 700;
+}
+
+.buy-now-btn:hover {
+  background: #000;
+}
+
+@media (max-width: 768px) {
+  .modal-content {
+    flex-direction: column;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+  .modal-image-side, .modal-info-side {
+    width: 100%;
+  }
+  .modal-image-side {
+    height: 300px;
+  }
+}

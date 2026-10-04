@@ -1,0 +1,31 @@
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg,
+    #B8960C 0%,
+    #D4B04A 40%,
+    #F0D070 60%,
+    #D4B04A 80%,
+    #B8960C 100%
+  );
+  background-size: 200% 100%;
+  animation: progressShimmer 2s linear infinite;
+  z-index: 9999;
+  transition: width 0.08s linear;
+  pointer-events: none;
+  box-shadow: 0 0 8px rgba(184,150,12,0.6), 0 0 2px rgba(212,176,74,0.8);
+}
+
+@keyframes progressShimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-progress {
+    animation: none;
+    transition: none;
+  }
+}

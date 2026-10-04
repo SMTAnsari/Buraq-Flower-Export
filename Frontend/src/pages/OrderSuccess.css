@@ -1,0 +1,211 @@
+/* ══════════════════════════════════════════
+   ORDER SUCCESS — Heritage Elegance
+══════════════════════════════════════════ */
+
+@keyframes osReveal {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.os-page {
+  background: #F5F0E8;
+  min-height: 100vh;
+  padding: 80px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.os-card {
+  background: #FFFFFF;
+  border: 1px solid #E0D8CC;
+  max-width: 560px;
+  width: 100%;
+  padding: 56px 48px;
+  text-align: center;
+  animation: osReveal 0.6s cubic-bezier(0.16,1,0.3,1) both;
+}
+
+/* Check icon */
+.os-icon-wrap {
+  width: 64px;
+  height: 64px;
+  border: 1.5px solid #B8E0C8;
+  background: #F0FAF4;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 24px;
+}
+
+/* Label */
+.os-label {
+  font-family: 'Jost', sans-serif;
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #1A7A4A;
+  margin: 0 0 12px;
+}
+
+/* Title */
+.os-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 38px;
+  font-weight: 400;
+  color: #1A1A1A;
+  margin: 0 0 8px;
+  line-height: 1.2;
+}
+
+/* Gold line */
+.os-gold-line {
+  width: 48px;
+  height: 2px;
+  background: #B8960C;
+  margin: 16px auto 20px;
+}
+
+/* Subtitle */
+.os-sub {
+  font-family: 'Jost', sans-serif;
+  font-size: 13px;
+  color: #8A8A8A;
+  line-height: 1.7;
+  margin: 0 0 40px;
+  max-width: 380px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Details box */
+.os-details {
+  background: #FAF7F2;
+  border: 1px solid #E0D8CC;
+  padding: 28px 32px;
+  text-align: left;
+  margin-bottom: 36px;
+}
+
+.os-details-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-weight: 400;
+  color: #1A1A1A;
+  margin: 0 0 20px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid #E0D8CC;
+}
+
+.os-details-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.os-detail-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+}
+
+.os-detail-label {
+  font-family: 'Jost', sans-serif;
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #8A8A8A;
+  flex-shrink: 0;
+  min-width: 80px;
+}
+
+.os-detail-value {
+  font-family: 'Jost', sans-serif;
+  font-size: 13px;
+  color: #4A4A4A;
+  text-align: right;
+}
+
+.os-total-row {
+  margin-top: 8px;
+  padding-top: 14px;
+  border-top: 1px solid #E0D8CC;
+}
+
+.os-total-price {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 400;
+  color: #1A1A1A;
+}
+
+/* Action buttons */
+.os-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.os-btn-dark {
+  display: inline-block;
+  background: #1A1A1A;
+  color: #F5F0E8;
+  font-family: 'Jost', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  padding: 14px 36px;
+  text-decoration: none;
+  border-radius: 2px;
+  transition: background 0.2s;
+}
+.os-btn-dark:hover { background: #2C2C2C; }
+
+.os-btn-outline {
+  display: inline-block;
+  background: transparent;
+  color: #1A1A1A;
+  font-family: 'Jost', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  padding: 14px 36px;
+  text-decoration: none;
+  border: 1.5px solid #E0D8CC;
+  border-radius: 2px;
+  transition: border-color 0.2s, color 0.2s;
+}
+.os-btn-outline:hover { border-color: #1A1A1A; }
+
+/* Responsive */
+@media (max-width: 640px) {
+  .os-page { padding: 60px 16px; }
+  .os-card { padding: 40px 24px; }
+  .os-title { font-size: 30px; }
+  .os-details { padding: 20px; }
+  .os-actions { flex-direction: column; }
+  .os-btn-dark, .os-btn-outline { text-align: center; }
+}
+
+.os-btn-whatsapp {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #25D366;
+  color: #fff;
+  border: none;
+  padding: 12px 22px;
+  font-family: 'Jost', sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.os-btn-whatsapp:hover { background: #1ebe5d; }

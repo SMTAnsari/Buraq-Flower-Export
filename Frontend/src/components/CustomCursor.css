@@ -1,0 +1,66 @@
+.cursor-ring {
+  width: 32px;
+  height: 32px;
+  border: 1.5px solid #1A1A1A;
+  border-radius: 50%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 9998;
+  transition: transform 0.15s ease, width 0.2s ease, height 0.2s ease,
+              background 0.2s ease, border-color 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  will-change: transform;
+}
+
+.cursor-ring--hover {
+  width: 48px;
+  height: 48px;
+  background: rgba(184,150,12,0.08);
+  border-color: #B8960C;
+  margin-left: -8px;
+  margin-top: -8px;
+}
+
+.cursor-ring--image {
+  width: 64px;
+  height: 64px;
+  background: rgba(184,150,12,0.12);
+  border-color: #B8960C;
+  margin-left: -16px;
+  margin-top: -16px;
+}
+
+.cursor-label {
+  font-family: 'Jost', sans-serif;
+  font-size: 8px;
+  letter-spacing: 1.5px;
+  color: #B8960C;
+  text-transform: uppercase;
+}
+
+.cursor-dot {
+  width: 6px;
+  height: 6px;
+  background: #B8960C;
+  border-radius: 50%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 9999;
+  will-change: transform;
+}
+
+/* Hide on touch / coarse pointer devices */
+@media (hover: none), (pointer: coarse) {
+  .cursor-ring,
+  .cursor-dot { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cursor-ring { transition: none; }
+}

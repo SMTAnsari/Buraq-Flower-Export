@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /seller
+Disallow: /checkout
+Disallow: /order-success
+Disallow: /orders
+
+Sitemap: https://buraqflowerexports.com/sitemap.xml

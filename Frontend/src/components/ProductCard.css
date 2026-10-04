@@ -1,0 +1,580 @@
+/* ══════════════════════════════════════════
+   YWA PRODUCT CARD — Heritage Elegance Enhanced
+══════════════════════════════════════════ */
+
+@keyframes pcFadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.pc-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+  opacity: 0;
+  animation: pcFadeUp 0.5s cubic-bezier(0.16,1,0.3,1) both;
+  transition: box-shadow 0.35s ease, transform 0.35s cubic-bezier(0.34,1.56,0.64,1),
+              border-color 0.3s ease;
+  will-change: transform;
+}
+.pc-card:hover {
+  box-shadow: 0 20px 56px rgba(0,0,0,0.14), 0 4px 16px rgba(184,150,12,0.07);
+  transform: translateY(-8px);
+  border-color: rgba(184,150,12,0.25);
+}
+
+/* Gold shimmer sweep on hover */
+.pc-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    105deg,
+    transparent 40%,
+    rgba(184,150,12,0.07) 50%,
+    transparent 60%
+  );
+  transition: left 0.6s ease;
+  pointer-events: none;
+  z-index: 5;
+}
+.pc-card:hover::after { left: 150%; }
+
+/* Image — 3:4 portrait */
+.pc-img-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  background: var(--cream-dark);
+  border-radius: 12px 12px 0 0;
+}
+
+.pc-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.16,1,0.3,1);
+}
+.pc-card:hover .pc-img { transform: scale(1.08); }
+
+/* Stock badge — top right */
+.pc-stock-badge {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 3;
+  font-family: 'Jost', sans-serif;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 4px 10px;
+}
+.pc-stock-badge.sold { background: var(--dark); color: var(--cream); }
+.pc-stock-badge.low  { background: var(--gold); color: #fff; }
+
+/* Hover overlay */
+.pc-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 4;
+  background: rgba(26,26,26,0.88);
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  transform: translateY(100%);
+  transition: transform 0.35s cubic-bezier(0.16,1,0.3,1);
+}
+.pc-card:hover .pc-overlay { transform: translateY(0); }
+
+.pc-btn-buy-now {
+  width: 100%;
+  background: transparent;
+  color: #fff;
+  font-family: 'Jost', sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 11px 0;
+  border: none;
+  border-bottom: 1px solid rgba(255,255,255,0.15);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.pc-btn-buy-now:hover:not(:disabled) { background: rgba(255,255,255,0.1); }
+.pc-btn-buy-now:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.pc-btn-cart {
+  width: 100%;
+  background: var(--gold);
+  color: #fff;
+  font-family: 'Jost', sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 11px 0;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.pc-btn-cart:hover:not(:disabled) { background: #9A7A08; }
+.pc-btn-cart:disabled { opacity: 0.5; cursor: not-allowed; }
+.pc-btn-cart.added { background: #4A6741; }
+
+/* Content below image */
+.pc-content {
+  padding: 12px 10px 14px;
+  background: var(--white);
+  position: relative;
+}
+
+/* Gold accent line that grows on hover */
+.pc-content::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 10px;
+  width: 0;
+  height: 1.5px;
+  background: var(--gold);
+  transition: width 0.4s cubic-bezier(0.16,1,0.3,1);
+}
+.pc-card:hover .pc-content::before { width: calc(100% - 20px); }
+
+.pc-cat-label {
+  font-family: 'Jost', sans-serif;
+  font-size: 9px;
+  font-weight: 400;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--text-light);
+  margin: 0 0 4px;
+}
+
+.pc-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--dark);
+  line-height: 1.3;
+  margin: 0 0 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.pc-price {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--gold);
+  margin: 0;
+}
+
+/* Price + wishlist row */
+.pc-bottom-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+/* Persistent wishlist heart button */
+.pc-wish-btn {
+  flex: 0 0 44px;
+  width: 44px;
+  height: 44px;
+  background: #FFFFFF;
+  border: 1.5px solid #E0D8CC;
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background 0.2s ease;
+  flex-shrink: 0;
+}
+.pc-wish-btn:hover {
+  border-color: #1A1A1A;
+  transform: scale(1.1);
+}
+.pc-wish-btn:hover svg {
+  stroke: #1A1A1A;
+}
+.pc-wish-btn.active {
+  border-color: #C4856A;
+  background: #FFF5F2;
+}
+/* Heart pop on toggle */
+.pc-wish-btn.active svg {
+  animation: heartPop 0.4s cubic-bezier(0.34,1.56,0.64,1);
+}
+@keyframes heartPop {
+  0%   { transform: scale(1); }
+  40%  { transform: scale(1.45); }
+  70%  { transform: scale(0.88); }
+  100% { transform: scale(1); }
+}
+
+/* ── Skeleton ── */
+.skeleton-card {
+  border: 1px solid var(--border);
+  overflow: hidden;
+  background: var(--white);
+}
+.skeleton-card::before {
+  content: '';
+  display: block;
+  aspect-ratio: 3 / 4;
+  background: linear-gradient(90deg, var(--cream-dark) 25%, var(--cream) 50%, var(--cream-dark) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+.skeleton-card::after {
+  content: '';
+  display: block;
+  height: 60px;
+  background: linear-gradient(90deg, #f0ebe0 25%, #f8f4ee 50%, #f0ebe0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* Legacy — keep ProductDetail working */
+.skeleton-img  { display: none; }
+.skeleton-body { display: none; }
+.skeleton-line { display: none; }
+.product-card         { display: none; }
+.product-image-container { display: none; }
+.product-content      { display: none; }
+.add-to-cart-btn      { display: none; }
+.buy-now-btn          { display: none; }
+.wishlist-btn         { display: none; }
+.badge-stack          { display: none; }
+.badge-free-delivery  { display: none; }
+.oos-overlay          { display: none; }
+.star-rating          { display: none; }
+.card-btn-group       { display: none; }
+
+/* ══════════════════════════════════════════
+   PRODUCT CARD DESIGN ENHANCEMENTS
+══════════════════════════════════════════ */
+
+/* ── Deeper shadow on hover ── */
+.pc-card:hover {
+  box-shadow:
+    0 20px 60px rgba(0,0,0,0.14),
+    0 4px 16px rgba(184,150,12,0.06);
+}
+
+/* ── Image wrap: subtle inner shadow at bottom ── */
+.pc-img-wrap::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: linear-gradient(to top, rgba(26,26,26,0.12), transparent);
+  pointer-events: none;
+  z-index: 2;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.pc-card:hover .pc-img-wrap::after { opacity: 1; }
+
+/* ── Price: gold Cormorant ── */
+.pc-price {
+  font-family: 'Cormorant Garamond', serif !important;
+  font-size: 20px !important;
+  font-weight: 600 !important;
+  color: var(--gold) !important;
+  letter-spacing: 0.5px;
+}
+
+/* ── Category label: gold dot ── */
+.pc-cat-label::before {
+  content: '· ';
+  color: var(--gold);
+}
+
+/* ── Card: rounded corners slightly larger ── */
+.pc-card {
+  border-radius: 14px;
+}
+.pc-img-wrap {
+  border-radius: 14px 14px 0 0;
+}
+
+/* ── Overlay: gradient instead of flat dark ── */
+.pc-overlay {
+  background: linear-gradient(to top, rgba(26,26,26,0.95) 0%, rgba(26,26,26,0.75) 100%);
+}
+
+/* ── Wishlist button: gold on active ── */
+.pc-wish-btn.active {
+  border-color: var(--gold);
+  background: rgba(184,150,12,0.06);
+}
+
+/* ══════════════════════════════════════════
+   PRODUCT CARD — Modern Elegant Overhaul
+══════════════════════════════════════════ */
+
+/* Card: glass morphism + layered shadow */
+.pc-card {
+  background: linear-gradient(145deg, #FFFFFF 0%, #FDFAF6 100%);
+  border: 1px solid rgba(224,216,204,0.7);
+  border-radius: 16px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.04), 0 1px 0 rgba(255,255,255,0.8) inset;
+}
+.pc-card:hover {
+  box-shadow:
+    0 24px 64px rgba(0,0,0,0.14),
+    0 4px 16px rgba(184,150,12,0.08),
+    0 1px 0 rgba(255,255,255,0.8) inset;
+  transform: translateY(-8px);
+  border-color: rgba(184,150,12,0.2);
+}
+
+/* Image wrap: rounded top */
+.pc-img-wrap {
+  border-radius: 16px 16px 0 0;
+  background: linear-gradient(135deg, #EDE5D8 0%, #E0D8CC 100%);
+}
+
+/* Overlay: gradient */
+.pc-overlay {
+  background: linear-gradient(to top, rgba(15,15,15,0.96) 0%, rgba(26,26,26,0.80) 100%);
+  border-radius: 0 0 0 0;
+}
+
+/* Cart button: gold gradient */
+.pc-btn-cart {
+  background: linear-gradient(135deg, #B8960C 0%, #D4B04A 100%);
+  letter-spacing: 2.5px;
+  font-weight: 600;
+  padding: 13px 0;
+}
+.pc-btn-cart:hover:not(:disabled) {
+  background: linear-gradient(135deg, #D4B04A 0%, #B8960C 100%);
+}
+.pc-btn-cart.added {
+  background: linear-gradient(135deg, #2D6A4F 0%, #4A6741 100%);
+}
+
+/* Content: refined padding */
+.pc-content {
+  padding: 14px 12px 16px;
+  background: linear-gradient(180deg, #FFFFFF 0%, #FDFAF6 100%);
+}
+
+/* Name: slightly larger */
+.pc-name {
+  font-size: 16px;
+  letter-spacing: -0.2px;
+}
+
+/* Price: gold gradient text */
+.pc-price {
+  font-family: 'Cormorant Garamond', serif !important;
+  font-size: 20px !important;
+  font-weight: 600 !important;
+  color: var(--gold) !important;
+  -webkit-text-fill-color: var(--gold) !important;
+}
+
+/* Wishlist button: refined */
+.pc-wish-btn {
+  border-radius: 8px;
+  background: rgba(255,255,255,0.9);
+  backdrop-filter: blur(4px);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+.pc-wish-btn:hover {
+  border-color: #1A1A1A;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+.pc-wish-btn.active {
+  border-color: #C4856A;
+  background: linear-gradient(135deg, #FFF5F2 0%, #FFF0EC 100%);
+  box-shadow: 0 4px 12px rgba(196,133,106,0.2);
+}
+
+/* Stock badges: refined */
+.pc-stock-badge {
+  border-radius: 0 16px 0 8px;
+  padding: 5px 12px;
+  font-size: 9px;
+  letter-spacing: 1.5px;
+}
+.pc-stock-badge.sold {
+  background: linear-gradient(135deg, #1A1A1A 0%, #2C2C2C 100%);
+}
+.pc-stock-badge.low {
+  background: linear-gradient(135deg, #B8960C 0%, #D4B04A 100%);
+}
+
+/* Skeleton: refined shimmer */
+.skeleton-card {
+  border-radius: 16px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+}
+
+/* ══════════════════════════════════════════
+   PRODUCT CARD ANIMATION ADDITIONS
+══════════════════════════════════════════ */
+
+/* Card entrance: fade up from below */
+@keyframes pcFadeUp {
+  from { opacity: 0; transform: translateY(20px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0)    scale(1);    }
+}
+.pc-card {
+  opacity: 0;
+  animation: pcFadeUp 0.5s cubic-bezier(0.16,1,0.3,1) both;
+}
+
+/* Hover: lift 8px with gold-tinted shadow */
+.pc-card:hover {
+  transform: translateY(-8px);
+  box-shadow:
+    0 20px 48px rgba(0,0,0,0.13),
+    0 4px 12px rgba(184,150,12,0.08);
+  border-color: rgba(184,150,12,0.22);
+}
+
+/* Image: zoom in smoothly on hover */
+.pc-img {
+  transition: transform 0.55s cubic-bezier(0.16,1,0.3,1);
+}
+.pc-card:hover .pc-img {
+  transform: scale(1.07);
+}
+
+/* Overlay: slides up from bottom on hover */
+.pc-overlay {
+  transform: translateY(100%);
+  transition: transform 0.38s cubic-bezier(0.16,1,0.3,1);
+}
+.pc-card:hover .pc-overlay {
+  transform: translateY(0);
+}
+
+/* Gold accent line grows on hover */
+.pc-content::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 12px;
+  width: 0;
+  height: 1.5px;
+  background: var(--gold, #B8960C);
+  transition: width 0.4s cubic-bezier(0.16,1,0.3,1);
+}
+.pc-card:hover .pc-content::before {
+  width: calc(100% - 24px);
+}
+
+/* Wishlist heart: bounce on click (active state) */
+@keyframes heartBounce {
+  0%   { transform: scale(1); }
+  35%  { transform: scale(1.5); }
+  65%  { transform: scale(0.85); }
+  100% { transform: scale(1); }
+}
+.pc-wish-btn.active svg {
+  animation: heartBounce 0.4s cubic-bezier(0.34,1.56,0.64,1);
+}
+.pc-wish-btn {
+  transition: border-color 0.2s ease,
+              background 0.2s ease,
+              transform 0.25s cubic-bezier(0.34,1.56,0.64,1);
+}
+.pc-wish-btn:hover {
+  transform: scale(1.12);
+}
+
+/* Skeleton shimmer */
+@keyframes skeletonShimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position:  200% 0; }
+}
+.skeleton-card::before,
+.skeleton-card::after {
+  background: linear-gradient(
+    90deg,
+    var(--cream-dark, #EDE5D8) 25%,
+    var(--cream, #F7F2EA)      50%,
+    var(--cream-dark, #EDE5D8) 75%
+  );
+  background-size: 200% 100%;
+  animation: skeletonShimmer 1.6s ease-in-out infinite;
+}
+
+/* ── Rating row ── */
+.pc-rating-row {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 6px;
+}
+.pc-stars {
+  display: flex;
+  align-items: center;
+  gap: 1px;
+}
+.pc-rating-val {
+  font-family: 'Jost', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: #B8960C;
+  line-height: 1;
+}
+.pc-review-cnt {
+  font-family: 'Jost', sans-serif;
+  font-size: 11px;
+  color: #8A8A8A;
+  line-height: 1;
+}
+
+/* ── Rating row ── */
+.pc-rating-row {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 6px;
+}
+.pc-stars {
+  display: flex;
+  align-items: center;
+  gap: 1px;
+}
+.pc-rating-val {
+  font-family: 'Jost', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: #B8960C;
+  line-height: 1;
+}
+.pc-review-cnt {
+  font-family: 'Jost', sans-serif;
+  font-size: 11px;
+  color: #8A8A8A;
+  line-height: 1;
+}

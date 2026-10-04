@@ -1,0 +1,557 @@
+/* ── Page wrapper ── */
+.checkout-page {
+  background: linear-gradient(180deg, #F7F2EA 0%, #EDE5D8 100%);
+  min-height: 100vh;
+  padding: 20px 16px 48px;
+}
+
+.checkout-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.checkout-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.4rem;
+  font-weight: 400;
+  color: #1A1A1A;
+  margin: 0 0 24px;
+  letter-spacing: -0.3px;
+}
+
+/* ── Two-column grid ── */
+.checkout-layout {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 20px;
+  align-items: start;
+}
+
+/* ── Shared card ── */
+.co-card {
+  background: linear-gradient(145deg, #FFFFFF 0%, #FDFAF6 100%);
+  border: 1px solid rgba(224,216,204,0.7);
+  border-radius: 4px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.05), 0 1px 0 rgba(255,255,255,0.8) inset;
+  padding: 24px;
+}
+
+/* ── Section headings ── */
+.co-section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 400;
+  color: #1A1A1A;
+  margin: 0 0 16px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #E0D8CC;
+}
+
+/* ── Address list ── */
+.co-address-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.co-address-item {
+  border: 1.5px solid #E0D8CC;
+  border-radius: 4px;
+  padding: 12px 14px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  transition: border-color 0.15s, background 0.15s;
+  background: #FAF7F2;
+}
+.co-address-item:hover { border-color: #1A1A1A; background: #F5F0E8; }
+.co-address-item.selected {
+  border-color: #1A1A1A;
+  background: #FAF7F2;
+}
+
+.co-address-name {
+  font-family: 'Jost', sans-serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #1A1A1A;
+  margin: 0 0 4px;
+}
+.co-address-line {
+  font-family: 'Jost', sans-serif;
+  font-size: 0.85rem;
+  color: #4A4A4A;
+  margin: 0 0 2px;
+}
+
+.co-address-actions {
+  display: flex;
+  gap: 10px;
+  flex-shrink: 0;
+}
+.co-btn-edit   { color: #8A8A8A; font-family: 'Jost', sans-serif; font-size: 0.82rem; font-weight: 500; background: none; border: none; cursor: pointer; padding: 0; }
+.co-btn-edit:hover   { color: #1A1A1A; }
+.co-btn-delete { color: #8A8A8A; font-family: 'Jost', sans-serif; font-size: 0.82rem; font-weight: 500; background: none; border: none; cursor: pointer; padding: 0; }
+.co-btn-delete:hover { color: #1A1A1A; }
+
+.co-btn-add-address {
+  background: transparent;
+  border: 1.5px solid #1A1A1A;
+  border-radius: 2px;
+  padding: 10px 24px;
+  font-family: 'Jost', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #1A1A1A;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+.co-btn-add-address:hover { background: #1A1A1A; color: #FFFFFF; }
+
+/* ── Address form ── */
+.co-form { display: flex; flex-direction: column; gap: 14px; }
+
+.co-form-group { display: flex; flex-direction: column; gap: 5px; }
+
+.co-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.co-label {
+  font-family: 'Jost', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #8A8A8A;
+  text-align: left;
+}
+
+.co-input {
+  width: 100%;
+  padding: 10px 12px;
+  border: none;
+  border-bottom: 1.5px solid #E0D8CC;
+  border-radius: 0;
+  font-family: 'Jost', sans-serif;
+  font-size: 0.9rem;
+  color: #1A1A1A;
+  background: transparent;
+  outline: none;
+  transition: border-color 0.15s;
+  box-sizing: border-box;
+}
+.co-input:focus {
+  border-color: #1A1A1A;
+}
+
+.co-form-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.co-btn-save {
+  background: #1A1A1A;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 2px;
+  padding: 10px 24px;
+  font-family: 'Jost', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.co-btn-save:hover { background: #2C2C2C; }
+
+.co-btn-cancel {
+  background: transparent;
+  color: #4A4A4A;
+  border: 1.5px solid #E0D8CC;
+  border-radius: 2px;
+  padding: 10px 24px;
+  font-family: 'Jost', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: border-color 0.15s, color 0.15s;
+}
+.co-btn-cancel:hover { border-color: #1A1A1A; color: #1A1A1A; }
+
+/* ── Payment section ── */
+.co-payment-section {
+  margin-top: 16px;
+}
+
+.co-select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1.5px solid #E0D8CC;
+  border-radius: 2px;
+  font-family: 'Jost', sans-serif;
+  font-size: 0.9rem;
+  color: #1A1A1A;
+  background: #FFFFFF;
+  outline: none;
+  margin-top: 8px;
+  cursor: pointer;
+}
+.co-select:focus { border-color: #1A1A1A; }
+
+/* ── Right column: Order Summary ── */
+.co-summary-col {
+  position: sticky;
+  top: 110px;
+}
+
+.co-summary-col .co-card {
+  background: #FFFFFF;
+  border-color: #E0D8CC;
+}
+
+.co-summary-col .co-section-title {
+  font-size: 26px;
+}
+
+.co-summary-items {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.co-summary-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.co-summary-item-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+  min-width: 0;
+}
+
+.co-summary-img {
+  width: 48px;
+  height: 48px;
+  object-fit: cover;
+  border-radius: 2px;
+  border: 1px solid #E0D8CC;
+  flex-shrink: 0;
+}
+
+.co-summary-item-name {
+  font-family: 'Jost', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: #1A1A1A;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.co-summary-item-qty {
+  font-family: 'Jost', sans-serif;
+  font-size: 0.78rem;
+  color: #8A8A8A;
+  margin-top: 2px;
+}
+
+.co-summary-item-price {
+  font-family: 'Jost', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #1A1A1A;
+  white-space: nowrap;
+}
+
+/* Totals */
+.co-totals {
+  border-top: 1px solid #E0D8CC;
+  padding-top: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.co-total-row {
+  display: flex;
+  justify-content: space-between;
+  font-family: 'Jost', sans-serif;
+  font-size: 0.88rem;
+  color: #4A4A4A;
+}
+
+.co-total-row.grand {
+  font-family: 'Cormorant Garamond', serif;
+  border-top: 1px solid #E0D8CC;
+  padding-top: 10px;
+  margin-top: 4px;
+  font-size: 20px;
+  font-weight: 400;
+  color: #1A1A1A;
+}
+
+.co-total-row .free { color: #1A7A4A; font-weight: 600; }
+
+.co-place-order-btn {
+  width: 100%;
+  background: linear-gradient(135deg, #1A1A1A 0%, #2C2C2C 100%);
+  color: #FFFFFF;
+  border: none;
+  border-radius: 2px;
+  padding: 18px;
+  font-family: 'Jost', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-top: 16px;
+  cursor: pointer;
+  transition: background 0.25s, transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+.co-place-order-btn:hover:not(:disabled) { background: linear-gradient(135deg, #B8960C 0%, #D4B04A 100%); color: #1A1A1A; box-shadow: 0 8px 32px rgba(184,150,12,0.35); transform: translateY(-2px); }
+.co-place-order-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* ── Mobile: stack columns ── */
+@media (max-width: 768px) {
+  .checkout-layout {
+    grid-template-columns: 1fr;
+  }
+  .co-summary-col {
+    position: static;
+    order: 2;
+  }
+  .co-form-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ══════════════════════════════════════════
+   CHECKOUT ENHANCEMENTS
+══════════════════════════════════════════ */
+
+/* Page entrance animation */
+.checkout-page {
+  animation: checkoutFadeIn 0.5s cubic-bezier(0.16,1,0.3,1) both;
+}
+@keyframes checkoutFadeIn {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Checkout title with gold underline */
+.checkout-title {
+  position: relative;
+  display: inline-block;
+}
+.checkout-title::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 48px;
+  height: 2px;
+  background: #B8960C;
+}
+
+/* Progress stepper */
+.co-stepper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  margin-bottom: 32px;
+  padding: 20px 0;
+}
+
+.co-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+  z-index: 1;
+}
+
+.co-step-circle {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1.5px solid #E0D8CC;
+  background: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Jost', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  color: #8A8A8A;
+  transition: all 0.3s ease;
+}
+
+.co-step.active .co-step-circle {
+  background: #1A1A1A;
+  border-color: #1A1A1A;
+  color: #F5F0E8;
+}
+
+.co-step.done .co-step-circle {
+  background: #B8960C;
+  border-color: #B8960C;
+  color: #FFFFFF;
+}
+
+.co-step-label {
+  font-family: 'Jost', sans-serif;
+  font-size: 9px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #8A8A8A;
+  white-space: nowrap;
+}
+.co-step.active .co-step-label { color: #1A1A1A; font-weight: 600; }
+.co-step.done .co-step-label   { color: #B8960C; }
+
+.co-step-line {
+  width: 80px;
+  height: 1px;
+  background: #E0D8CC;
+  margin: 0 8px;
+  margin-bottom: 24px;
+  flex-shrink: 0;
+}
+.co-step-line.done { background: #B8960C; }
+
+/* Selected address checkmark */
+.co-address-item.selected .co-address-name::after {
+  content: ' ✓';
+  color: #1A7A4A;
+  font-size: 12px;
+}
+
+/* Order summary card — elevated */
+.co-summary-col .co-card {
+  box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+  border-top: 3px solid #B8960C;
+}
+
+/* Place order button — shimmer effect */
+.co-place-order-btn {
+  position: relative;
+  overflow: hidden;
+}
+.co-place-order-btn::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.08) 50%, transparent 60%);
+  transform: translateX(-100%);
+  transition: transform 0.5s ease;
+}
+.co-place-order-btn:hover:not(:disabled)::after { transform: translateX(100%); }
+
+/* Summary image hover zoom */
+.co-summary-img {
+  transition: transform 0.3s ease;
+  overflow: hidden;
+}
+.co-summary-item:hover .co-summary-img { transform: scale(1.08); }
+
+@media (max-width: 640px) {
+  .co-stepper { gap: 0; }
+  .co-step-line { width: 40px; }
+  .co-step-label { display: none; }
+}
+
+/* ── Payment options (radio cards) ── */
+.co-payment-options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.co-payment-option {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  border: 1.5px solid #E0D8CC;
+  border-radius: 4px;
+  cursor: pointer;
+  background: #FAF7F2;
+  transition: border-color 0.15s, background 0.15s;
+  position: relative;
+}
+.co-payment-option:hover { border-color: #1A1A1A; background: #F5F0E8; }
+.co-payment-option.selected { border-color: #1A1A1A; background: #F5F0E8; }
+
+.co-payment-radio { accent-color: #1A1A1A; width: 16px; height: 16px; flex-shrink: 0; }
+
+.co-payment-icon { font-size: 18px; flex-shrink: 0; }
+
+.co-payment-label {
+  font-family: 'Jost', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #1A1A1A;
+  flex: 1;
+}
+
+.co-payment-badge {
+  font-family: 'Jost', sans-serif;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #1A7A4A;
+  background: #E8F5EE;
+  border: 1px solid #B8E0C8;
+  border-radius: 2px;
+  padding: 2px 6px;
+}
+
+.co-payment-note {
+  font-family: 'Jost', sans-serif;
+  font-size: 0.8rem;
+  color: #8A8A8A;
+  margin-top: 10px;
+  padding: 8px 12px;
+  background: #F5F0E8;
+  border-left: 2px solid #B8960C;
+  border-radius: 0 2px 2px 0;
+}
+
+/* Razorpay secured note */
+.co-razorpay-note {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 10px;
+  font-family: 'Jost', sans-serif;
+  font-size: 11px;
+  letter-spacing: 1px;
+  color: #8A8A8A;
+  text-transform: uppercase;
+}
